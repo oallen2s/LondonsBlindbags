@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stitch Theme Website</title>
+  <style>
+    :root {
+      --stitch-blue: #3B9CFF;
+      --stitch-purple: #8C52FF;
+      --stitch-pink: #FF9CEC;
+      --stitch-light: #E0F7FF;
+      --stitch-dark: #2C3E50;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    body {
+      background-color: var(--stitch-light);
+      color: var(--stitch-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    header {
+      background-color: var(--stitch-blue);
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-button {
+      background-color: var(--stitch-purple);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab-button:hover {
+      background-color: var(--stitch-pink);
+      color: var(--stitch-dark);
+    }
+
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 1rem;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .active {
+      display: block;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .image-gallery img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.2rem;
+      }
+
+      .tab-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Stitch's Awesome Website
+  </header>
+
+  <nav>
+    <button class="tab-button" onclick="showTab('product')">Product</button>
+    <button class="tab-button" onclick="showTab('gallery')">Gallery</button>
+    <button class="tab-button" onclick="showTab('chat')">Chat</button>
+  </nav>
+
+  <div id="product" class="tab-content active">
+    <h2>Our Product</h2>
+    <p>Check out our cool Stitch-themed school supplies and toys!</p>
+    <div class="image-gallery">
+      <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/Stitch.png" alt="Stitch toy">
+      <img src="https://static.wikia.nocookie.net/disney/images/7/78/Profile_-_Stitch.png" alt="Stitch supplies">
+    </div>
+  </div>
+
+  <div id="gallery" class="tab-content">
+    <h2>Gallery</h2>
+    <p>View fun pictures of Stitch and friends!</p>
+    <div class="image-gallery">
+      <img src="https://static.wikia.nocookie.net/disney/images/b/bd/Stitch_transparent.png" alt="Happy Stitch">
+      <img src="https://static.wikia.nocookie.net/disney/images/1/12/Stitch-lilo-and-stitch.jpg" alt="Stitch with Lilo">
+    </div>
+  </div>
+
+  <div id="chat" class="tab-content">
+    <h2>Chat Feature</h2>
+    <p>Coming soon: Talk with other Stitch fans!</p>
+    <img src="https://static.wikia.nocookie.net/disney/images/8/81/Stitch_chat.png" alt="Stitch chat" style="margin-top: 1rem; width: 150px;">
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
